@@ -21,3 +21,6 @@ df["total"] = df["total"].astype(int)
 
 df.to_csv(f"data/processed/people_in_excessive_heat_{today}.csv", index=False)
 df.to_csv(f"data/processed/people_in_excessive_heat_latest.csv", index=False)
+
+df.to_json(f"data/processed/people_in_excessive_heat_{today}.json", indent=4, orient='records')
+df.to_json(f"data/processed/people_in_excessive_heat_latest.json", indent=4, orient='records')
