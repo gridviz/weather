@@ -27,7 +27,8 @@ df = pd.concat([src, df_start]).drop_duplicates(subset='date').sort_values('date
 df["date"] = pd.to_datetime(df["date"])
 df["total"] = df["total"].astype(int)
 
-df['pop_share'] = ((df['total'] / 331449281)*100).round(2)
+df['pop'] = 331449281
+df['pop_share'] = ((df['total'] / df['pop'])*100).round(2)
 
 df.to_csv(f"data/processed/people_in_excessive_heat_{today}.csv", index=False)
 df.to_csv(f"data/processed/people_in_excessive_heat_latest.csv", index=False)
